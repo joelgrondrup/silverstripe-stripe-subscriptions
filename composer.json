@@ -1,0 +1,36 @@
+{
+  "name": "joelgrondrup/silverstripe-stripe-subscriptions",
+  "description": "A modules for creating subscriptions via Stripe",
+  "type": "silverstripe-vendormodule",
+  "homepage": "https://github.com/joelgrondrup/silverstripe-stripe-subscriptions",
+  "keywords": ["silverstripe", "subscription", "saas", "subscriptions", "stripe"],
+  "license": "BSD-3-Clause",
+  "authors": [
+    {
+      "name": "Joel Grøndrup","email": "joel@joel.biz"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/joelgrondrup/silverstripe-stripe-subscriptions"
+  },
+  "require": {
+        "php": "^8.2",
+        "silverstripe/cms": "^5.4",
+        "silverstripe/framework": "^5.4",
+        "samandeggs/silverstripe-stripewebhook": "master as 1.0.6"
+    },
+  "autoload": {
+    "psr-4": {
+      "JoelGrondrup\\StripeSubscriptions\\": "src/"
+    }
+  },
+  "extra": {
+    "installer-name": "silverstripe-microbizz",
+    "expose": [
+      "client"
+    ],
+    "screenshots": [
+      
+    ]
+  }
+}

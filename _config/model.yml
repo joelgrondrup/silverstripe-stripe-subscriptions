@@ -1,0 +1,6 @@
+---
+Name: stripe-subscriptions-model
+---
+SilverStripe\Security\Member:
+  extensions:
+    - JoelGrondrup\StripeSubscriptions\Extensions\StripeMemberExtension
