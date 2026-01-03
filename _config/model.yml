@@ -4,3 +4,7 @@ Name: stripe-subscriptions-model
 SilverStripe\Security\Member:
   extensions:
     - JoelGrondrup\StripeSubscriptions\Extensions\StripeMemberExtension
+
+Vulcan\StripeWebhook\Models\EventOccurrence:
+  extensions:
+    - JoelGrondrup\StripeSubscriptions\Extensions\EventOccurrenceExtension
