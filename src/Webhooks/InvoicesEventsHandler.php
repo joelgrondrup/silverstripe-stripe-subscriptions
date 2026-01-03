@@ -4,6 +4,7 @@ namespace JoelGrondrup\StripeSubscriptions\Webhooks;
 
 use Stripe\Event;
 use JoelGrondrup\StripeSubscriptions\Models\Invoice;
+use JoelGrondrup\StripeSubscriptions\Models\InvoiceLineItem;
 use Vulcan\StripeWebhook\Handlers\StripeEventHandler;
 use SilverStripe\Security\Member;
 
@@ -59,6 +60,29 @@ class InvoicesEventsHandler extends StripeEventHandler
                 ]);
 
                 $invoice->write();
+
+                if (isset($invoicedata->lines->data)) {
+                    foreach ($invoicedata->lines->data as $line) {
+                        $item = InvoiceLineItem::get()->filter('StripeID', $line->id)->first();
+                        
+                        if (!$item) {
+                            $item = InvoiceLineItem::create();
+                        }
+
+                        $item->update([
+                            'StripeID'    => $line->id,
+                            'InvoiceID'   => $invoice->ID,
+                            'Amount'      => $line->amount,
+                            'Currency'    => $line->currency,
+                            'Description' => $line->description,
+                            'Quantity'    => $line->quantity,
+                            'PriceID'     => $line->price->id ?? null,
+                            'ProductID'   => $line->price->product ?? null,
+                        ]);
+                        
+                        $item->write();
+                    }
+                }
 
                 error_log("Invoice created");
 

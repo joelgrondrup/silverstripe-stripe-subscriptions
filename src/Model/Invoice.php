@@ -33,6 +33,10 @@ class Invoice extends DataObject
         'Member'   => Member::class, // Link directly to the user for easy lookup
     ];
 
+    private static $has_many = [
+        'LineItems' => InvoiceLineItem::class,
+    ];
+
     private static $summary_fields = [
         'Created.Nice' => 'Date',
         'StripeID'     => 'Invoice ID',
