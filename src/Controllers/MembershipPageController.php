@@ -29,9 +29,9 @@ class MembershipPageController extends PageController
         }
 
         error_log('Starting checkout for plan: ' . $plan->Title);
-        error_log(Environment::getEnv('STRIPE_SECRET_KEY'));
+        error_log(Environment::getEnv('STRIPE_SECRET'));
         // Set your API Key (Usually from environment variables)
-        Stripe::setApiKey(Environment::getEnv('STRIPE_SECRET_KEY'));
+        Stripe::setApiKey(Environment::getEnv('STRIPE_SECRET'));
 
         $member = Security::getCurrentUser();
 
