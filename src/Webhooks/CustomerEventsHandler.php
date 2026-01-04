@@ -21,60 +21,125 @@ class CustomerEventsHandler extends StripeEventHandler
     public static function handle($event, Event $data)
     {
 
-        $customerid = $data->data->object->id ?? null;
-        error_log("Customer ID: " . $customerid);
+        $obj = $data->data->object;
 
-        if (!$customerid){
+        $customerid = ($event === 'customer.deleted' || $event === 'customer.created' || $event === 'customer.updated') 
+            ? $obj->id 
+            : $obj->customer;
+
+        if (!$customerid) {
+
             error_log("Missing customer ID");
+            error_log(json_encode($data));
+
             return "Missing customer ID";
         }
+        
+        error_log("Event received: " . $event);
+        error_log("Customer ID: " . $customerid);
+
+        $member = Member::get()->filter('StripeCustomerID', $customerid)->first();
 
         switch ($event) {
 
             case 'customer.created':
             case 'customer.updated':
 
-                $member = Member::get()->filter('StripeCustomerID', $customerid)->first();
-                
                 if (!$member) {
                     $member = Member::create();
                 }
 
                 $member->update([
-                    'StripeCustomerID'=> $data->data->object->id,
-                    'Email'           => $data->data->object->email,
-                    'Name'            => $data->data->object->name,
-                    'Phone'           => $data->data->object->phone,
-                    'Description'     => $data->data->object->description,
-                    'Currency'        => $data->data->object->currency,
-                    'Balance'         => $data->data->object->balance,
-                    'Delinquent'      => $data->data->object->delinquent,
-                    'InvoicePrefix'   => $data->invoice_prefix,
-                    'TaxExempt'       => $data->data->object->tax_exempt,
-                    'LiveMode'        => $data->data->object->livemode,
-                    'CreatedInStripe' => date('Y-m-d H:i:s', $data->data->object->created),
-                    'Metadata'        => json_encode($data->data->object->metadata),
-                    'RawData'         => json_encode($data)
+                    'StripeCustomerID'  => $obj->id,
+                    'Email'             => $obj->email,
+                    'Name'              => $obj->name,
+                    'Phone'             => $obj->phone,
+                    'Description'       => $obj->description,
+                    'Currency'          => $obj->currency,
+                    'Balance'           => $obj->balance,
+                    'Delinquent'        => $obj->delinquent,
+                    'InvoicePrefix'     => $data->invoice_prefix,
+                    'TaxExempt'         => $obj->tax_exempt,
+                    'LiveMode'          => $obj->livemode,
+                    'CreatedInStripe'   => date('Y-m-d H:i:s', $obj->created),
+                    'Metadata'          => json_encode($obj->metadata),
+                    'RawData'           => json_encode($data),
+                    'SubscriptionStatus' => 'active'
                 ]);
 
                 $member->write();
 
-                return "Customer created/updated";
+                return sprintf(
+                    "Member (%s) created. Security groups synchronized.",
+                    $member->Email
+                );
+
+            case 'customer.subscription.created':
+            case 'customer.subscription.updated':
+
+                if (!$member) {
+                    
+                    return sprintf(
+                        "Member (%s) not found. Security groups synchronized.",
+                        $customerid
+                    );
+
+                }
+
+                $oldStatus = $member->SubscriptionStatus;
+                $newStatus = $obj->status;
+
+                $member->SubscriptionStatus = $obj->status; 
+                $member->write(); // Triggers Group Sync
+
+                return sprintf(
+                    "Member (%s) updated: %s -> %s. Security groups synchronized.",
+                    $member->Email,
+                    $oldStatus,
+                    $newStatus
+                );
+
+            case 'customer.subscription.deleted':
+
+                if (!$member) {
+                    
+                    return sprintf(
+                        "Member (%s) not found. Security groups synchronized.",
+                        $customerid
+                    );
+                    
+                }
+
+                $member->SubscriptionStatus = 'canceled';
+                $member->write(); // Triggers Group Sync (Moves to Expired Group)
+
+                return sprintf(
+                    "Member (%s) subscription cancelled: %s. Security groups synchronized.",
+                    $member->Email,
+                    $member->SubscriptionStatus
+                );
 
             case 'customer.deleted':
 
-                $member = Member::get()->filter('StripeCustomerID', $customerid)->first();
+                if (!$member) {
 
-                if ($member) {
+                    return sprintf(
+                        "Member (%s) not found. Security groups synchronized.",
+                        $customerid
+                    );
 
-                    $member->delete();
                 }
 
-                return "Customer deleted";
+                $member->delete();
+
+                return sprintf(
+                    "Member (%s) deleted. Security groups synchronized.",
+                    $member->Email
+                );
 
             default:
                 
-                return "No event to handle";
+                return "No handler for event: " . $event;
 
         }
 

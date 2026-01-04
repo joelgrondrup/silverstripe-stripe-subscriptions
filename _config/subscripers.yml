@@ -1,0 +1,9 @@
+---
+Name: stripe-subscribers-defaults
+---
+JoelGrondrup\StripeSubscriptions\Extensions\StripeMemberExtension:
+  status_group_mappings:
+    active: 'active-subscribers'
+    trialing: 'active-subscribers'
+    past_due: 'restricted-access'
+    canceled: 'expired-members'
