@@ -95,5 +95,3 @@ This will help you validate group synchronization and webhook handling locally.
 - Adjust group codes in the mappings to match your `Group` codes in SilverStripe.
 
 ---
-
-If you want, I can also add a short example showing how to map a Stripe Customer ID to a Member or add troubleshooting tips.
