@@ -6,6 +6,7 @@ use SilverStripe\ORM\DataExtension;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Security\Group;
 use SilverStripe\Forms\ReadonlyField;
+use SilverStripe\Core\Config\Config;
 
 class StripeMemberExtension extends DataExtension
 {
@@ -52,27 +53,33 @@ class StripeMemberExtension extends DataExtension
         ]);
     }
 
-    public function onBeforeWrite()
+    public function onAfterWrite()
     {
-        parent::onBeforeWrite();
+        parent::onAfterWrite();
 
-        // Only run if the SubscriptionStatus has changed
-        if ($this->owner->isChanged('SubscriptionStatus')) {
+        // Only sync groups if the status was changed during the save
+        // or if this is a brand new record.
+        if ($this->owner->isChanged('SubscriptionStatus') || $this->owner->isObjectCreated) {
             $this->updateSubscriptionGroups();
         }
     }
 
     protected function updateSubscriptionGroups()
     {
-        $status = $this->owner->SubscriptionStatus;
+        // Force lowercase to match YAML keys exactly
+        $status = strtolower($this->owner->SubscriptionStatus);
         
-        // Fetch the mappings from the config system
-        $mappings = $this->owner->config()->get('status_group_mappings');
+        $mappings = Config::inst()->get(self::class, 'status_group_mappings');
 
-        // 1. Remove user from all possible subscription groups first (to handle downgrades)
+        if (!$mappings) {
+            return;
+        }
+
+        // 1. Remove user from all possible subscription groups
         foreach ($mappings as $groupCode) {
             $group = Group::get()->filter('Code', $groupCode)->first();
             if ($group) {
+                // This happens immediately in the many_many table
                 $this->owner->Groups()->remove($group);
             }
         }
@@ -80,11 +87,22 @@ class StripeMemberExtension extends DataExtension
         // 2. Add to the specific group for the current status
         if (isset($mappings[$status])) {
             $targetCode = $mappings[$status];
+
+            error_log("Trying to add to group: " . $targetCode);
+
             $targetGroup = Group::get()->filter('Code', $targetCode)->first();
             
             if ($targetGroup) {
+
+                error_log("Adding member with ID " . $this->owner->ID . " to group: " . $targetGroup->Code . " with ID: " . $targetGroup->ID);
+
                 $this->owner->Groups()->add($targetGroup);
             }
+        }
+        else {
+
+            error_log("Stripe Extension Error: No group mapping found for status '$status'. Check your YAML config.");
+
         }
     }
 

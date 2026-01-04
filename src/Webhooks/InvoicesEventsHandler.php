@@ -2,6 +2,7 @@
 
 namespace JoelGrondrup\StripeSubscriptions\Webhooks;
 
+use Throwable;
 use Stripe\Event;
 use JoelGrondrup\StripeSubscriptions\Models\Invoice;
 use JoelGrondrup\StripeSubscriptions\Models\InvoiceLineItem;
@@ -26,71 +27,103 @@ class InvoicesEventsHandler extends StripeEventHandler
     public static function handle($event, Event $data)
     {
 
-        $invoiceid = $data->data->object->id ?? null;
-        $customerid = $data->data->object->customer ?? null;
-        $invoicedata = $data->data->object ?? null;
+        try {
 
-        switch ($event) {
+            $invoiceid = $data->data->object->id ?? null;
+            $invoicedata = $data->data->object ?? null;
+            $customerid = $data->data->object->customer ?? null;
 
-            case 'invoice.created':
-            case 'invoice.updated':
-
-                $invoice = Invoice::get()->filter('StripeID', $invoiceid)->first();
-
-                if (!$invoice) {
-                    $invoice = Invoice::create();
-                }
-
-                // Link to Customer and Member records
-                $member = Member::get()->filter('StripeCustomerID', $customerid)->first();
-
-                $invoice->update([
-                    'StripeID'        => $invoicedata->id,
-                    'AmountDue'       => $invoicedata->amount_due,
-                    'AmountPaid'      => $invoicedata->amount_paid,
-                    'AmountRemaining' => $invoicedata->amount_remaining,
-                    'Currency'        => $invoicedata->currency,
-                    'Status'          => $invoicedata->status,
-                    'InvoiceURL'      => $invoicedata->hosted_invoice_url,
-                    'PDFURL'          => $invoicedata->invoice_pdf,
-                    'PeriodStart'     => date('Y-m-d H:i:s', $invoicedata->period_start),
-                    'PeriodEnd'       => date('Y-m-d H:i:s', $invoicedata->period_end),
-                    'LiveMode'        => $invoicedata->livemode,
-                    'MemberID'        => $member ? $member->ID : 0,
-                ]);
-
-                $invoice->write();
-
-                if (isset($invoicedata->lines->data)) {
-                    foreach ($invoicedata->lines->data as $line) {
-                        $item = InvoiceLineItem::get()->filter('StripeID', $line->id)->first();
-                        
-                        if (!$item) {
-                            $item = InvoiceLineItem::create();
-                        }
-
-                        $item->update([
-                            'StripeID'    => $line->id,
-                            'InvoiceID'   => $invoice->ID,
-                            'Amount'      => $line->amount,
-                            'Currency'    => $line->currency,
-                            'Description' => $line->description,
-                            'Quantity'    => $line->quantity,
-                            'PriceID'     => $line->price->id ?? null,
-                            'ProductID'   => $line->price->product ?? null,
-                        ]);
-                        
-                        $item->write();
-                    }
-                }
-
-                error_log("Invoice created");
-
-                return "Invoice created";
+            $invoice = Invoice::get()->filter('StripeID', $invoiceid)->first();
             
-            default:
+            $member = Member::get()->filter('StripeCustomerID', $customerid)->first();
+
+            switch ($event) {
+
+                case 'invoice.created':
+                case 'invoice.updated':
+
+                    if (!$invoice) {
+                        $invoice = Invoice::create();
+                    }
+
+                    // Link to Customer and Member records
+                    $member = Member::get()->filter('StripeCustomerID', $customerid)->first();
+
+                    $invoice->update([
+                        'StripeID'        => $invoicedata->id,
+                        'AmountDue'       => $invoicedata->amount_due,
+                        'AmountPaid'      => $invoicedata->amount_paid,
+                        'AmountRemaining' => $invoicedata->amount_remaining,
+                        'Currency'        => $invoicedata->currency,
+                        'Status'          => $invoicedata->status,
+                        'InvoiceURL'      => $invoicedata->hosted_invoice_url,
+                        'PDFURL'          => $invoicedata->invoice_pdf,
+                        'PeriodStart'     => date('Y-m-d H:i:s', $invoicedata->period_start),
+                        'PeriodEnd'       => date('Y-m-d H:i:s', $invoicedata->period_end),
+                        'LiveMode'        => $invoicedata->livemode,
+                        'MemberID'        => $member ? $member->ID : 0,
+                    ]);
+
+                    $invoice->write();
+
+                    if (isset($invoicedata->lines->data)) {
+                        foreach ($invoicedata->lines->data as $line) {
+                            $item = InvoiceLineItem::get()->filter('StripeID', $line->id)->first();
+                            
+                            if (!$item) {
+                                $item = InvoiceLineItem::create();
+                            }
+
+                            $item->update([
+                                'StripeID'    => $line->id,
+                                'InvoiceID'   => $invoice->ID,
+                                'Amount'      => $line->amount,
+                                'Currency'    => $line->currency,
+                                'Description' => $line->description,
+                                'Quantity'    => $line->quantity,
+                                'PriceID'     => $line->price->id ?? null,
+                                'ProductID'   => $line->price->product ?? null,
+                            ]);
+                            
+                            $item->write();
+                        }
+                    }
+
+                    return sprintf(
+                        "Invoice created with ID: %s. Security groups synchronized.",
+                        $invoice->StripeID
+                    );
+
+                case 'invoice.paid':
+                case 'invoice.payment_succeeded':
+
+                    if (!$invoice) {
+                        
+                        return "No invoice found for invoice ID: " . $invoiceid;
+
+                    }
+
+                    $invoice->Status = $invoicedata->status;
+                    $invoice->write();
+
+                    $member->SubscriptionStatus = 'active';
+                    $member->write();
+
+                    error_log("Member " . $member->ID . " updated to status: " . $invoicedata->status);
+
+                    return "Payment confirmed for Invoice " . $invoicedata->id;
                 
-                return "No event to handle";
+                default:
+                    
+                    return "No handler for event: " . $event;
+
+            }
+
+        }
+        catch (Throwable $e){
+
+            error_log($e->getMessage());
+            return "Error handling event: " . $event;
 
         }
 

@@ -1,8 +1,0 @@
-
-
-JoelGrondrup\StripeSubscriptions\Services\SubscriptionManager:
-  status_groups:
-    active: 'active-subscribers'
-    trialing: 'active-subscribers'
-    past_due: 'restricted-access'
-    canceled: 'expired-members'
