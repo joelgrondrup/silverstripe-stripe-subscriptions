@@ -9,6 +9,9 @@ use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
 
 class MembershipPage extends Page 
 {
+
+    private static string $icon_class = 'font-icon-p-cart';
+
     private static $has_many = [
         'Plans' => StripePlan::class
     ];
