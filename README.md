@@ -83,7 +83,7 @@ private static $always_require_subscription = true;
 You can use the Stripe CLI to simulate events locally. Install the CLI and run the following command:
 
 ```bash
-stripe listen --forward-to https://map-drawing-tool:8890/stripe-webhook/ --skip-verify
+stripe listen --forward-to https://your-local-url/stripe-webhook/ --skip-verify
 ```
 To make a test payment, use the following credentials:
 
