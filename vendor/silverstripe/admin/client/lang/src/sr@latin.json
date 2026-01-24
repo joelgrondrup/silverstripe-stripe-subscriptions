@@ -1,0 +1,6 @@
+{
+    "Admin.BATCH_DELETE_PROMPT": "You have {num} page(s) selected.\n\nDo you really want to delete?",
+    "Admin.CONFIRMUNSAVED": "Da li ste sigurni da želite da odete sa ove stranice?\n\nUPOZORENjE: Vaše izmene još nisu sačuvane.\n\nPritisnite U redu za nastavak ili Odustani da bi ste ostali na ovoj stranici.",
+    "Admin.CONFIRMUNSAVEDSHORT": "UPOZORENjE: Vaše izmene nisu sačuvane.",
+    "Admin.VALIDATIONERROR": "Grešla pri proveri ispravnosti"
+}

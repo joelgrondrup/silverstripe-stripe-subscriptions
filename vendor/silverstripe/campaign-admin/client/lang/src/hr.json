@@ -1,0 +1,7 @@
+{
+    "CampaignAdmin.ADDCAMPAIGN": "Dodaj kampanju",
+    "CampaignAdmin.ITEM_SUMMARY_PLURAL": "%s stavki",
+    "CampaignAdmin.ITEM_SUMMARY_SINGULAR": "%s stavka",
+    "CampaignAdmin.PUBLISHCAMPAIGN": "Objavi kampanju",
+    "CampaignAdmin.REVERTCAMPAIGN": "Vrati"
+}

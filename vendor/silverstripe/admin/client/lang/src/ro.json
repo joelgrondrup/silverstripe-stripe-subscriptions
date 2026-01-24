@@ -1,0 +1,8 @@
+{
+    "Admin.BATCH_DELETE_PROMPT": "You have {num} page(s) selected.\n\nDo you really want to delete?",
+    "Admin.BATCH_UNPUBLISH_PROMPT": "Aveti {num} pagina(i) selectate.\n\nDoriti sa le nenublicati",
+    "Admin.CONFIRMUNSAVED": "Sunteți sigur că doriți să părăsiți pagina?\n\nAVERTISMENT: Modificările nu au fost salvate.\n\nApăsați OK pentru a continua, sau Anulați pentru a rămâne pe pagina curentă.",
+    "Admin.CONFIRMUNSAVEDSHORT": "AVERTISMENT: Modificările nu au fost salvate.",
+    "Admin.SELECTONEPAGE": "Vă rugăm să selectaţi cel puțin o pagină.",
+    "Admin.VALIDATIONERROR": "Eroare de validare"
+}

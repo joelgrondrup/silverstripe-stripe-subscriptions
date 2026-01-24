@@ -1,0 +1,81 @@
+nl:
+  SilverStripe\Assets\File:
+    AviType: 'AVI video bestand'
+    CREATED: 'Eerste upload'
+    CssType: 'CSS bestand'
+    DRAFT: Concept
+    EDIT_ALL_DESCRIPTION: 'Elk bestand bewerken'
+    EDIT_ALL_HELP: 'Elk bestand bewerken, inclusief vertrouwelijke bestanden'
+    GifType: 'GIF afbeelding - geschikt voor diagrammen'
+    GzType: 'GZIP gecomprimeerd bestand'
+    HtmlType: 'HTML bestand'
+    INVALIDEXTENSION_SHORT: 'Extensie niet toegestaan'
+    INVALIDEXTENSION_SHORT_EXT: "Bestanden van het type '{extension}' zijn niet toegestaan"
+    IcoType: 'Icon afbeelding'
+    JpgType: "JPEG afbeelding - geschikt voor foto's"
+    JsType: 'Javascript bestand'
+    LASTEDIT: 'Laatst gewijzigd'
+    MODIFIED: Gewijzigd
+    Mp3Type: 'MP3 audio bestand'
+    MpgType: 'MPEG video bestand'
+    NOFILESIZE: 'Bestandsgrootte is nul bytes'
+    NOVALIDUPLOAD: 'Geen geldig upload-bestand'
+    PARTIALUPLOAD: 'Bestandsupload niet voltooid, probeer het opnieuw'
+    PATH: Pad
+    PLURALNAME: Bestanden
+    PLURALS:
+      one: 'Een bestand'
+      other: '{count} bestanden'
+    PREVIEW: Voorbeeld
+    PdfType: 'Adobe Acrobat PDF bestand'
+    PngType: 'PNG afbeelding - geschikt voor algemeen gebruik'
+    SINGULARNAME: Bestand
+    TOOLARGE: 'Bestand is te groot, maximaal {size} is toegestaan'
+    TiffType: 'TIFF - Tagged image format'
+    WavType: 'WAV audio bestand'
+    ZipType: 'ZIP gecomprimeerd bestand'
+    belongs_to_SubmittedFileField: 'Ingestuurd bestand veld'
+    db_CanEditType: 'Bewerkbaar door'
+    db_CanViewType: 'Bekijken door'
+    db_File: Bestand
+    db_FileContentCache: 'Bestandsinhoud cache'
+    db_Name: Naam
+    db_ShowInSearch: 'Toon in zoeken'
+    db_Title: Titel
+    db_UserFormUpload: 'Geupload door bezoeker'
+    db_Version: Versie
+    has_many_BackLinks: 'Links naar bestand'
+    has_one_Company: Bedrijf
+    has_one_Owner: Eigenaar
+    has_one_Parent: Bovenliggend
+    has_one_TestPage: Testpagina
+    many_many_EditorGroups: Bewerkgroep
+    many_many_EditorMembers: Bewerker
+    many_many_ViewerGroups: Bekijk-groep
+    many_many_ViewerMembers: Bekijkers
+  SilverStripe\Assets\Folder:
+    PLURALNAME: Mappen
+    PLURALS:
+      one: 'Een map'
+      other: '{count} mappen'
+    SINGULARNAME: Map
+  SilverStripe\Assets\Image:
+    PLURALNAME: Afbeeldingen
+    PLURALS:
+      one: 'Een afbeelding'
+      other: '{count} afbeeldingen'
+    SINGULARNAME: Afbeelding
+  SilverStripe\Assets\ShortCodesImageShortcodeProvider:
+    IMAGENOTFOUND: 'Afbeelding niet gevonden'
+  SilverStripe\Assets\Shortcodes\FileLink:
+    PLURALNAME: Bestandslinks
+    PLURALS:
+      one: bestandslink
+      other: '{count} bestandslinks'
+    SINGULARNAME: Bestandslinks
+    has_one_Linked: Gelinkt
+    has_one_Parent: Bovenliggend
+  SilverStripe\Assets\Shortcodes\FileLinkTracking:
+    many_many_FileTracking: FileTracking
+  SilverStripe\Assets\Shortcodes\ImageShortcodeProvider:
+    IMAGENOTFOUND: 'Afbeelding niet gevonden'

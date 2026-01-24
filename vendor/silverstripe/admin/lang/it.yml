@@ -1,0 +1,123 @@
+it:
+  SilverStripe\Admin\AdminController:
+    ErrorMessage: 'Spiacente, sembra ci sia stato un errore {errorcode}.'
+    ErrorMessage403: "Spiacente, sembra che l'azione che hai provato ad eseguire non sia consentita."
+    ErrorMessage404: 'Spiacente, sembra tu abbia provato ad accedere ad una sezione o ad un oggetto che non esiste.'
+    ErrorMessage500: 'Spiacente, sembra ci sia stato un errore interno al server.'
+    ErrorMessage503: 'Spiacente, sembra che il servizio sia temporaneamente non disponibile.'
+  SilverStripe\Admin\CMSProfileController:
+    CANTEDIT: 'Non hai il permesso di farlo'
+    MENUTITLE: 'Il mio profilo'
+  SilverStripe\Admin\Forms\EditorEmailLinkFormFactory:
+    EMAIL: 'Indirizzo email'
+    LINKDESCR: 'Descrizione del collegamento'
+    LINKTEXT: 'Link al testo'
+    SUBJECT: Oggetto
+  SilverStripe\Admin\Forms\EditorExternalLinkFormFactory:
+    ANCHORVALUE: Ancora
+    LINKDESCR: 'Descrizione del collegamento'
+    LINKOPENNEWWIN: 'Apri in una nuova finestra/scheda'
+    LINKTEXT: 'Link al testo'
+  SilverStripe\Admin\Forms\EditorPhoneLinkFormFactory:
+    LINKDESCR: 'Descrizione del collegamento'
+    LINKTEXT: 'Link al testo'
+  SilverStripe\Admin\Forms\LinkFormFactory:
+    INSERT_LINK: 'Inserisci il link'
+  SilverStripe\Admin\Forms\UsedOnTable:
+    ADDEDTODRAFT: Bozza
+    MODIFIEDONDRAFTSHORT: Modificato
+    UNTITLED: 'Senza titolo'
+  SilverStripe\Admin\GroupImportForm:
+    Help1: '<p>Importa uno o più gruppi nel formato <em>CSV</em> (valori separati da virgola). <small><a href="#" class="toggle-advanced">Mostra utilizzo avanzato</a></small></p>'
+    Help2: '<div class="advanced"><h4> Uso avanzato</h4><ul><li> Colonne consentite: <em>{columns}</em></li><li> I gruppi esistenti sono abbinati al loro valore di <em>Codice</em> unico e aggiornato con eventuali nuovi valori dal file importato</li><li> Le gerarchie di gruppo possono essere create utilizzando una colonna <em>ParentCode</em>.</li><li> I codici di autorizzazione possono essere assegnati dalla colonna <em>PermissionCode</em>. I codici di autorizzazione esistenti non vengono cancellati.</li></ul></div>'
+    ResultCreated: '{count} Gruppi creati'
+    ResultDeleted: '{count} Gruppi cancellati'
+    ResultUpdated: '{count} Gruppi aggiornati'
+  SilverStripe\Admin\LeftAndMain:
+    ACCESSALLINTERFACES: 'Accesso a tutte le sezioni CMS'
+    ACCESSALLINTERFACESHELP: 'Annulla le impostazioni di accesso più specifiche.'
+    BROWSER_WARNING_HEADING: 'Browser non supportato'
+    BROWSER_WARNING_TEXT: "Si sta utilizzando un browser Web che non è supportato da SilverStripe. <br/> Effettuare l'aggiornamento a una delle seguenti opzioni."
+    CollapsePanel: 'Comprimi pannello'
+    DELETE: Elimina
+    DELETED: Cancellato.
+    DropdownBatchActionsDefault: "Scegli un'azione..."
+    ErrorDetail: 'Dettagli errore: {detail}'
+    ErrorMessage: 'Spiacente, sembra ci sia stato un errore {errorcode}.'
+    ErrorMessage403: "Spiacente, sembra che l'azione che hai provato ad eseguire non sia consentita."
+    ErrorMessage404: 'Spiacente, sembra tu abbia provato ad accedere ad una sezione o ad un oggetto che non esiste.'
+    ErrorMessage500: 'Spiacente, sembra ci sia stato un errore interno al server.'
+    ErrorMessage503: 'Spiacente, sembra che il servizio sia temporaneamente non disponibile.'
+    ExpandPanel: 'Espandi pannello'
+    HelpMenu: 'Menu aiuto'
+    LOGOUT: Disconnetti
+    NO_PREVIEW: 'Anteprima non disponibile'
+    NavigateUp: 'Navigare su una cartella'
+    PERMAGAIN: 'Sei stato disconnesso dal CMS. Se si desidera accedere di nuovo, immettere un nome utente e una password di seguito.'
+    PERMALREADY: 'Mi dispiace, ma non puoi accedere a questa parte del CMS. Se si desidera accedere come qualcun altro, farlo di seguito.'
+    PERMDEFAULT: "Devi essere registrato per accedere all'area di amministrazione; inserisci le tue credenziali di seguito."
+    PROFILE: 'Profilo {name}'
+    PreviewButton: Anteprima
+    REQUIREJS: 'Il CMS richiede che JavaScript sia abilitato.'
+    SAVEDUP: Salvato.
+    SUBMIT_BUTTON_LABEL: Vai
+    ValidationError: 'Errore di convalida'
+    Version: Versione
+  SilverStripe\Admin\LeftAndMain_ViewModeSelector:
+    ChangeViewMode: 'Cambia la modalità di visualizzazione'
+    DualWindowView: 'Doppia finestra'
+    EditView: 'Modalità modifica'
+    PreviewState: 'Stato di anteprima'
+    PreviewView: 'Modalità anteprima'
+    SplitView: 'Modalità divisa'
+    ViewDeviceWidth: 'Seleziona una larghezza di anteprima'
+    Width: larghezza
+  SilverStripe\Admin\MemberImportForm:
+    BtnImport: 'Importa da CSV'
+    FileFieldLabel: 'File CSV <small>(Estensioni consentite: *.csv)</small>'
+    Help1: '<p>Importa utenti in <em>formato CSV</em> (valori separati da virgola).<small><a href="#" class="toggle-advanced"> Mostra utilizzo avanzato</a></small></p>'
+    Help2: '<div class="advanced"><h4>Uso avanzato </h4><ul><li> Colonne consentite: <em>{columns}</em></li><li> Gli utenti esistenti sono abbinati dalla loro proprietà <em>Codice</em> univoca e aggiornati con qualsiasi nuovo valore dal file importato. </li><li> I gruppi possono essere assegnati dalla colonna <em>Gruppi</em>. I gruppi sono identificati dalla loro proprietà <em>Codice</em>, più gruppi possono essere separati da una virgola. Le appartenenze ai gruppi esistenti non vengono cancellate.</li></ul></div>'
+    ImportFormHelpGroup: '<ul><li>I gruppi esistenti possono essere selezionati tramite il loro  <em>Codice</em>univoco, e aggiornati con i nuovi valori dal file importato</li><li>Gerarchie di gruppo possono essere create usando la colonna <em>ParentCode</em>.</li><li>Nuovi codici di permesso possono essere assegnati tramite la colonna <em>PermissionCode</em>. I codici di permesso pregressi non saranno revocati.</li></ul>'
+    ImportFormHelpMember: "<p>Nuovi gruppi possono essere assegnati con la colonna <em>Groups</em>. I gruppi sono identificati dalla loro <em>Codice</em>, più gruppi devono essere separati con una virgola. L'appartenenza a gruppi pregressi non viene revocata.</p>"
+    ResultCreated: 'Creato {count} utenti'
+    ResultDeleted: 'Eliminati {count} utenti'
+    ResultNone: 'Nessun cambiamento'
+    ResultUpdated: 'Aggiornato {count} utenti'
+  SilverStripe\Admin\ModelAdmin:
+    DELETE: Elimina
+    DELETEDRECORDS: 'Eliminato {count} record.'
+    EMPTYBEFOREIMPORT: 'Sostituisci i dati'
+    IMPORT: 'Importa da CSV'
+    IMPORTEDRECORDS: 'Importati {count} record.'
+    IMPORTSPECFIELDS: 'Colonne del database'
+    IMPORTSPECLINK: 'Mostra specifica per {modello}'
+    IMPORTSPECRELATIONS: Relazioni
+    IMPORTSPECTITLE: 'Specifica per {modello}'
+    NOCSVFILE: 'Si prega di cercare un file CSV da importare'
+    NOIMPORT: 'Niente da importare'
+    Title: 'Modelli di dati'
+    UPDATEDRECORDS: 'Aggiornato {count} record.'
+  SilverStripe\Admin\Navigator\SilverStripeNavigatorItem:
+    WONT_BE_SHOWN: 'Attenzione: questo messaggio sarà mostrato ai tuoi visitatori'
+  SilverStripe\Admin\Navigator\SilverStripeNavigatorItem_Unversioned:
+    PREVIEW: Anteprima
+    "PREVIEW'": Anteprima
+  SilverStripe\Admin\SecurityAdmin:
+    ACCESS_HELP: "Consentire la visualizzazione, l'aggiunta e la modifica degli utenti, nonché l'assegnazione di autorizzazioni e ruoli."
+    APPLY_ROLES: 'Applica ruoli ai gruppi'
+    APPLY_ROLES_HELP: 'Possibilità di modificare i ruoli assegnati a un gruppo. Richiede l''autorizzazione "Accesso a" Utenti "sezione".'
+    EDITPERMISSIONS: 'Gestisci le autorizzazioni per i gruppi'
+    EDITPERMISSIONS_HELP: 'Possibilità di modificare permessi e indirizzi IP per un gruppo. Richiede l''autorizzazione "Accesso a" Sicurezza "sezione".'
+    IMPORTGROUPS: 'Importa gruppi'
+    IMPORTUSERS: 'Importa utenti'
+    ImportFormHelpGroup: 'Existing groups are matched by their unique 3Code3 value, and updated with any new values from the imported file24Group hierarchies can be created by using a 5ParentCode5 column.46Permission codes can be assigned by the 7PermissionCode7 column. Existing permission codes are not cleared.61'
+    ImportFormHelpMember: '<p>I gruppi possono essere assegnati dalla colonna<em>Grouppi</em>. I gruppi sono identificati dal loro  <em>Code</em> property, multiple groups can be separated by comma. Existing group memberships are not cleared.</p>'
+    MENUTITLE: Sicurezza
+    MemberListCaution: 'Attenzione: la rimozione degli utenti da questo elenco li rimuoverà da tutti i gruppi e dal database'
+    TABROLES: Ruoli
+    Users: Utenti
+  SilverStripe\Admin\SudoModeController:
+    INVALID: 'Password non corretta'
+    ImportFormHelpGroup: '<ul><li>I gruppi esistenti possono essere selezionati tramite il loro  <em>Codice</em>univoco, e aggiornati con i nuovi valori dal file importato</li><li>Gerarchie di gruppo possono essere create usando la colonna <em>ParentCode</em>.</li><li>Nuovi codici di permesso possono essere assegnati tramite la colonna <em>PermissionCode</em>. I codici di permesso pregressi non saranno revocati.</li></ul>'
+    ImportFormHelpMember: "<p>Nuovi gruppi possono essere assegnati con la colonna <em>Groups</em>. I gruppi sono identificati dalla loro <em>Codice</em>, più gruppi devono essere separati con una virgola. L'appartenenza a gruppi pregressi non viene revocata.</p>"
+    TIMEOUT: 'Sessione scaduta, si prega di aggiornare e riprovare.'

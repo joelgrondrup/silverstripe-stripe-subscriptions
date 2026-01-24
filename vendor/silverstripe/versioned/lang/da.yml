@@ -1,0 +1,61 @@
+da:
+  SilverStripe\Versioned\ChangeSet:
+    EMPTY: Tom
+    ITEMS_CHANGES:
+      one: '{total} (1 ændring)'
+      other: '{total} ({count} ændringer)'
+    NAME: Navn
+    PLURALNAME: Kampagner
+    PLURALS:
+      one: 'En Kampagne'
+      other: '{count} Kampagner'
+    PUBLISHED_DATE_BY: '{date} af {name}'
+    PUBLISHED_TODAY: 'I dag {time}'
+    PUBLISHED_TODAY_BY: 'I dag {time} af {name}'
+    PUBLISHER_NAME: 'Udgivet af'
+    PUBLISH_DATE: 'Udgivelses dato'
+    SINGULARNAME: Kampagne
+    STATE: Tilstand
+    STATE_OPEN: Aktiv
+    STATE_PUBLISHED: Udgivet
+    STATE_REVERTED: Gendannet
+    db_Name: Navn
+    db_PublishDate: 'Udgivelses dato'
+    db_State: Tilstand
+  SilverStripe\Versioned\GridFieldArchiveAction:
+    Archive: Arkiver
+  SilverStripe\Versioned\RecursivePublishable:
+    INFERRED_TITLE: "Genereret ved udgivelse af '{title}' den {created}"
+  SilverStripe\Versioned\Versioned:
+    FLAG_ADDEDTODRAFT_HELP: 'Elementet er endnu ikke blevet udgivet'
+    FLAG_ADDEDTODRAFT_SHORT: Kladde
+    FLAG_ARCHIVED_HELP: 'Elementet er fjernet fra kladde og udgivet'
+    FLAG_ARCHIVED_SHORT: Arkiverede
+    FLAG_MODIFIEDONDRAFT_HELP: 'Elementet har ændringer der ikke er udgivet'
+    FLAG_MODIFIEDONDRAFT_SHORT: Modificeret
+    FLAG_ONLIVEONLYSHORT_HELP: 'Elementet er udgivet, men er slettet fra kladden'
+    FLAG_ONLIVEONLY_SHORT: 'Kun på udgivet'
+    has_many_Versions: Versioner
+  SilverStripe\Versioned\VersionedGridFieldItemRequest:
+    Archived: 'Arkiverede {name} {title}'
+    BUTTONAPPLYCHANGES: 'Anvend ændringer'
+    BUTTONARCHIVEDESC: 'Fjern udgivelse og læg i arkiv'
+    BUTTONPUBLISHED: Udgivet
+    BUTTONSAVEPUBLISH: Udgiv
+    BUTTONUNPUBLISH: 'Fjern udgivelse'
+    BUTTONUNPUBLISHDESC: 'Fjern fra udgivet site'
+    DRAFT: Kladde
+    MODIFIED: Modificeret
+    Published: 'Udgiv {name} {link}'
+    Unpublished: 'Fjern udgivelse af {name} {title}'
+  SilverStripe\Versioned\VersionedGridFieldState\VersionedGridFieldState:
+    ADDEDTODRAFTHELP: 'Elementet er endnu ikke blevet udgivet'
+    ADDEDTODRAFTSHORT: Kladde
+    ARCHIVEDPAGEHELP: 'Elementet er fjernet fra kladde og udgivet'
+    ARCHIVEDPAGESHORT: Arkiverede
+    MODIFIEDONDRAFTHELP: 'Elementet har ændringer der ikke er udgivet'
+    MODIFIEDONDRAFTSHORT: Modificeret
+    ONLIVEONLYSHORT: 'Kun på udgivet'
+    ONLIVEONLYSHORTHELP: 'Elementet er udgivet, men er slettet fra kladden'
+  SilverStripe\Versioned\VersionedHTTPMiddleware:
+    DRAFT_SITE_ACCESS_RESTRICTION: 'Du skal logge ind med din CMS adgangskode for at se kladde og arkiv versioner af dit indhold. <a href="{link}">Klik her for at vende tilbage til det udgivne site.</a>'

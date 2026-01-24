@@ -1,0 +1,10 @@
+{
+    "CMS.ALERTCLASSNAME": "페이지 저장 후 페이지의 종류는 업데이트됩니다.",
+    "CMS.AddSubPage": "여기에 새 페이지를 추가하기",
+    "CMS.Duplicate": "중복",
+    "CMS.EditPage": "편집",
+    "CMS.RollbackToVersion": "이 페이지의 #%s 버젼으로 롤백하시겠습니까?",
+    "CMS.ShowAsList": "하위 목록으로 표시",
+    "CMS.ThisPageAndSubpages": "이 페이지와 하위 페이지",
+    "CMS.ThisPageOnly": "이 페이지만"
+}

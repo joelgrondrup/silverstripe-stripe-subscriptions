@@ -1,0 +1,10 @@
+{
+    "CMS.ALERTCLASSNAME": "Тип странице ће бити ажуриран након што сачувате страницу",
+    "CMS.AddSubPage": "Додај нову страницу овде",
+    "CMS.Duplicate": "Дуплирај/копирај",
+    "CMS.EditPage": "Измени",
+    "CMS.RollbackToVersion": "Да ли заиста желите да се вратите на верзију  #%s ове странице?",
+    "CMS.ShowAsList": "Прикажу децу у виду листе",
+    "CMS.ThisPageAndSubpages": "Ова страница и подстранице",
+    "CMS.ThisPageOnly": "Само ова страница"
+}

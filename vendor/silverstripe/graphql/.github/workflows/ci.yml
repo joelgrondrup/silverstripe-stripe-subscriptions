@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  ci:
+    name: CI
+    # Do not run if this is a pull-request from same repo i.e. not a fork repo
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.repository
+    uses: silverstripe/gha-ci/.github/workflows/ci.yml@v1
+    with:
+      composer_require_extra: silverstripe/recipe-testing:^3
+      extra_jobs: |
+        - php: 8.1
+          endtoend: true
+          endtoend_suite: asset-admin
+          endtoend_config: vendor/silverstripe/asset-admin/behat.yml
+        - php: 8.1
+          endtoend: true
+          endtoend_suite: versioned-admin
+          endtoend_config: vendor/silverstripe/versioned-admin/behat.yml
+        - php: 8.1
+          endtoend: true
+          endtoend_suite: silverstripe-elemental
+          endtoend_config: vendor/dnadesign/silverstripe-elemental/behat.yml

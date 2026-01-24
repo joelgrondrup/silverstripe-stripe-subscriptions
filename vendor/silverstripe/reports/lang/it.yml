@@ -1,0 +1,16 @@
+it:
+  SilverStripe\CMS\Controllers\CMSPageHistoryController:
+    PREVIEW: 'Anteprima sito'
+  SilverStripe\Forms\GridField\GridField:
+    Filter: Filtro
+  SilverStripe\Reports\ReportAdmin:
+    MENUTITLE: Rapporti
+    ReportDescription: Descrizione
+    ReportTitle: Titolo
+  SilverStripe\Reports\SideReport:
+    OtherGroupTitle: Altro
+    REPEMPTY: 'Il rapporto {title} è vuoto.'
+  SilverStripe\Reports\SiteWideContentReport\Reports\SitewideContentReport:
+    MetaDescription: Descrizione
+  SilverStripe\Reports\SiteWideContentReport\SitewideContentReport:
+    MetaDescription: Descrizione

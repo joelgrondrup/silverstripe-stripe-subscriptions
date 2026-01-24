@@ -1,0 +1,10 @@
+{
+    "CMS.ALERTCLASSNAME": "ページ保存後にページの種類は更新されます．",
+    "CMS.AddSubPage": "ここに新しいページを追加",
+    "CMS.Duplicate": "重複",
+    "CMS.EditPage": "編集",
+    "CMS.RollbackToVersion": "このページのバージョン#%sへ本当にロールバックしますか?",
+    "CMS.ShowAsList": "子どもをリストで表示する",
+    "CMS.ThisPageAndSubpages": "このページとサブページ",
+    "CMS.ThisPageOnly": "このページのみ"
+}

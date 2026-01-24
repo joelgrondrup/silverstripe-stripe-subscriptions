@@ -80,6 +80,26 @@ private static $always_require_subscription = true;
 
 ## Testing with the Stripe CLI
 
+You can use the Stripe CLI to simulate events locally. Install the CLI and run the following command:
+
+```bash
+stripe listen --forward-to https://map-drawing-tool:8890/stripe-webhook/ --skip-verify
+```
+To make a test payment, use the following credentials:
+
+Card number: `4242424242424242`
+CVC: `123`
+Expiry date: `12/20` (any date in the future)
+Name on card: `Test Customer`
+
+Then, trigger a subscription.created event for the test customer:
+
+```bash
+stripe trigger customer.subscription.created --add customer:email="test@example.com"
+```
+
+This will create a subscription for the test customer and trigger a webhook event.
+
 Use the Stripe CLI to simulate events for a given customer email (example):
 
 ```bash

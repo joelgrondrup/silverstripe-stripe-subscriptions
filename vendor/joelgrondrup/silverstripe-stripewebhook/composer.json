@@ -1,0 +1,27 @@
+{
+    "name": "joelgrondrup/silverstripe-stripewebhook",
+    "description": "A delegation interface for handling Stripe webhook events. Forked from vulcandigital/silverstripe-stripewebhook.",
+    "type": "silverstripe-vendormodule",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Sam Mulliss",
+            "email": "sam@infused.io"
+        }
+    ],
+    "require": {
+        "silverstripe/framework": "^4.0 || ^5.0",
+        "stripe/stripe-php": "^7.43"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.7",
+        "squizlabs/php_codesniffer": "3.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Vulcan\\StripeWebhook\\": "src/",
+            "Vulcan\\StripeWebhook\\Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev"
+}

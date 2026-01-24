@@ -1,0 +1,8 @@
+{
+    "CampaignAdmin.ADDCAMPAIGN": "Добавить кампанию",
+    "CampaignAdmin.DELETECAMPAIGN": "Вы действительно хотите удалить эту запись?",
+    "CampaignAdmin.ITEM_SUMMARY_PLURAL": "%s элементов",
+    "CampaignAdmin.ITEM_SUMMARY_SINGULAR": "%s элемент",
+    "CampaignAdmin.PUBLISHCAMPAIGN": "Опубликовать кампанию",
+    "CampaignAdmin.REVERTCAMPAIGN": "Отменить"
+}

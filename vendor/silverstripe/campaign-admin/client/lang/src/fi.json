@@ -1,0 +1,8 @@
+{
+    "CampaignAdmin.ADDCAMPAIGN": "Lisää kampanja",
+    "CampaignAdmin.DELETECAMPAIGN": "Haluatko varmasti poistaa tämän tietueen?",
+    "CampaignAdmin.ITEM_SUMMARY_PLURAL": "%s kohdetta",
+    "CampaignAdmin.ITEM_SUMMARY_SINGULAR": "%s kohde",
+    "CampaignAdmin.PUBLISHCAMPAIGN": "Julkaise kampanja",
+    "CampaignAdmin.REVERTCAMPAIGN": "Palauta"
+}

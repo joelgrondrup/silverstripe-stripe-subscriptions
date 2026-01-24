@@ -16,7 +16,10 @@ use SilverStripe\Core\Injector\Injector;
 class MembershipPageController extends PageController 
 {
 
-    private static $allowed_actions = ['checkout', 'thankyou'];
+    private static $allowed_actions = [
+        'checkout', 
+        'thankyou'
+    ];
 
     public function index()
     {

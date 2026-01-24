@@ -1,0 +1,15 @@
+{
+    "CampaignAdmin.ADDCAMPAIGN": "Pridať kampaň",
+    "CampaignAdmin.DELETECAMPAIGN": "Naozaj chcete odstrániť tento záznam?",
+    "CampaignAdmin.DRAFT": "Koncept",
+    "CampaignAdmin.FORBIDDEN": "Nemáte prístup na zobrazenie tejto kampane.",
+    "CampaignAdmin.ITEM_SUMMARY_PLURAL": "%s položiek",
+    "CampaignAdmin.ITEM_SUMMARY_SINGULAR": "%s položka",
+    "CampaignAdmin.MODIFIED": "Upravené",
+    "CampaignAdmin.NO_CHANGES": "Žiadne zmeny",
+    "CampaignAdmin.PAGE_NOT_FOUND": "Kampaň, ktorú hľadáte, nie je možné nájsť.",
+    "CampaignAdmin.PUBLISHCAMPAIGN": "Zverejniť kampaň",
+    "CampaignAdmin.REMOVED": "Odstránené",
+    "CampaignAdmin.REVERTCAMPAIGN": "Vrátiť späť",
+    "CampaignAdmin.SOMETHING_WENT_WRONG": "Niečo sa pokazilo."
+}

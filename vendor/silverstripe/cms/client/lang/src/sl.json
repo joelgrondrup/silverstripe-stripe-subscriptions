@@ -1,0 +1,12 @@
+{
+    "CMS.ALERTCLASSNAME": "Tipska stran bo posodobljena po shranjevanju strani",
+    "CMS.AddSubPage": "Dodaj novo stran tukaj",
+    "CMS.Duplicate": "Podvoji",
+    "CMS.EditPage": "Uredi",
+    "CMS.RollbackToVersion": "Obnovim na verzijo #%s te strani?",
+    "CMS.ShowAsList": "Prikaži otroke kot seznam",
+    "CMS.ThisPageAndSubpages": "To stran in podstrani",
+    "CMS.ThisPageOnly": "Samo to stran",
+    "CMS.UpdateURL": "Posodobi URL",
+    "CMS.ViewPage": "Pogled"
+}
