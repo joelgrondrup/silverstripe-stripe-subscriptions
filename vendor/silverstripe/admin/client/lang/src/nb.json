@@ -1,6 +1,0 @@
-{
-    "Admin.BATCH_DELETE_PROMPT": "You have {num} page(s) selected.\n\nDo you really want to delete?",
-    "Admin.CONFIRMUNSAVED": "Er du sikker på at du vil forlate denne siden?\n\nADVARSEL: Endringene din har ikke blitt lagret.\n\nTrykk OK for å fortsette eller Avbryt for å holde deg på samme side.",
-    "Admin.CONFIRMUNSAVEDSHORT": "ADVARSEL: Endringene dine har ikke blitt lagret.",
-    "Admin.VALIDATIONERROR": "Valideringsfeil"
-}

@@ -1,6 +1,0 @@
----
-Name: versionedfiles
----
-SilverStripe\Assets\File:
-  extensions:
-    Versioned: SilverStripe\Versioned\Versioned

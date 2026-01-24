@@ -1,7 +1,0 @@
----
-Name: adminthemes
----
-SilverStripe\Admin\LeftAndMain:
-  admin_themes:
-    - 'silverstripe/admin:cms-forms'
-    - '$default'

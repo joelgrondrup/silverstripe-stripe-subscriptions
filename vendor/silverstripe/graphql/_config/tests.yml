@@ -1,8 +1,0 @@
----
-Name: graphql-test
----
-SilverStripe\Core\Injector\Injector:
-  SilverStripe\Dev\State\SapphireTestState:
-    properties:
-      States:
-        debugSchema: '%$SilverStripe\GraphQL\Dev\State\DebugSchemaState'

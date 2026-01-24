@@ -1,6 +1,0 @@
-{
-    "Admin.BATCH_DELETE_PROMPT": "You have {num} page(s) selected.\n\nDo you really want to delete?",
-    "Admin.CONFIRMUNSAVED": "Kei te hiahia whakatere atu i tēnei whārangi?\n\nWHAKATŪPATO: Kāore anō ō huringa kia tiakina.\n\nPēhi AE kia haere tonu, Whakakore rānei kia noho i te whārangi onāianei.",
-    "Admin.CONFIRMUNSAVEDSHORT": "WHAKATŪPATO: Kāore anō ō huringa kia tiakina.",
-    "Admin.VALIDATIONERROR": "Hapa Whakamana"
-}

@@ -1,6 +1,0 @@
-{
-    "Admin.BATCH_DELETE_PROMPT": "You have {num} page(s) selected.\n\nDo you really want to delete?",
-    "Admin.CONFIRMUNSAVED": "このページから移動しても良いですか?\n\n警告: あなたの変更は保存されていません．\n\n続行するにはOKを押してください．キャンセルをクリックするとこのページにとどまります．",
-    "Admin.CONFIRMUNSAVEDSHORT": "警告: あなたの変更は保存されていません．",
-    "Admin.VALIDATIONERROR": "検証エラー"
-}

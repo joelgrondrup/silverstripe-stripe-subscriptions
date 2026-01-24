@@ -1,5 +1,0 @@
-SilverStripe\Core\Injector\Injector:
-  Psr\SimpleCache\CacheInterface.stripeWebhook:
-    factory: SilverStripe\Core\Cache\CacheFactory
-    constructor:
-      namespace: "stripeWebhook"

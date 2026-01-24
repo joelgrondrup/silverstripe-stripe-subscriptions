@@ -1,9 +1,0 @@
-sk:
-  SilverStripe\CMS\Controllers\CMSPageHistoryController:
-    PREVIEW: 'Náhľad webovej stránky'
-  SilverStripe\Reports\ReportAdmin:
-    MENUTITLE: Správy
-    ReportTitle: Názov
-  SilverStripe\Reports\SideReport:
-    OtherGroupTitle: Iné
-    REPEMPTY: 'Správa {title} je prázdna.'
