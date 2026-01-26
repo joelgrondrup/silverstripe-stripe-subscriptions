@@ -39,13 +39,37 @@
                 <div class="row text-white">
                     <div class="col-6">
                         <h2>Abonnementer</h2>
+                        <% if $CurrentUser %>
+                            Welcome back, $CurrentUser.FirstName!
+                            Status: $CurrentUser.SubscriptionStatus
+                        <% end_if %>
                         <p>Her kan du ændre i dit abonnement.</p>
-                        <button class="btn btn-primary">Rediger abonnement</button>
+                        <div class="d-flex justify-content-end">
+                            <button class="btn btn-warning">Rediger</button>
+                        </div>
                     </div>
                     <div class="col-6">
                         <h2>Fakturaer</h2>
-                        <p>Her kan du se alle fakturaer for dine abonnementer.</p>
-                        <button class="btn btn-primary">Se fakturaer</button>
+                        <p>Her kan du se seneste faktura for dit abonnement.</p>
+                        <% if $CurrentUser.LastStripeInvoice %>
+                            <div class="invoice-box">
+                                <h3>Latest Billing</h3>
+                                <p>
+                                    <strong>Date:</strong> $CurrentUser.LastStripeInvoice.created.Format('d/m/Y') <br>
+                                    <strong>Amount:</strong> $CurrentUser.LastInvoiceAmount DKK <br>
+                                    <strong>Status:</strong> $CurrentUser.LastStripeInvoice.status
+                                </p>
+                                
+                                <a href="{$CurrentUser.LastStripeInvoice.hosted_invoice_url}" target="_blank" class="button">
+                                    View / Download PDF Invoice
+                                </a>
+                            </div>
+                        <% else %>
+                            <p>No recent invoices found.</p>
+                        <% end_if %>
+                        <div class="d-flex justify-content-end">
+                            <button class="btn btn-primary">Se alle</button>
+                        </div>
                     </div>
                 </div>
             </div>

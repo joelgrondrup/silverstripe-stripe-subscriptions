@@ -7,6 +7,10 @@ use SilverStripe\Forms\FieldList;
 use SilverStripe\Security\Group;
 use SilverStripe\Forms\ReadonlyField;
 use SilverStripe\Core\Config\Config;
+use SilverStripe\Core\Environment;
+use Stripe\Invoice;
+use Stripe\Stripe;
+use SilverStripe\View\ArrayData;
 
 class StripeMemberExtension extends DataExtension
 {
@@ -120,6 +124,49 @@ class StripeMemberExtension extends DataExtension
                 $group->write();
             }
         }
+    }
+
+    public function getLastStripeInvoice()
+    {
+        if (!$this->owner->StripeCustomerID) {
+            return null;
+        }
+
+        \Stripe\Stripe::setApiKey(\SilverStripe\Core\Environment::getEnv('STRIPE_SECRET'));
+
+        try {
+            $invoices = Invoice::all([
+                'customer' => $this->owner->StripeCustomerID,
+                'limit' => 1,
+            ]);
+
+            if (isset($invoices->data[0])) {
+                // THE FIX: Wrap the Stripe object in ArrayData
+                return ArrayData::create($invoices->data[0]->toArray());
+            }
+        } catch (\Exception $e) {
+            return null;
+        }
+
+        return null;
+    }
+
+    public function getLastInvoiceAmount() 
+    {
+        $invoice = $this->getLastStripeInvoice();
+        return $invoice ? ($invoice->total / 100) : 0;
+    }
+
+    public function getStripePortalLink() 
+    {
+        Stripe::setApiKey(Environment::getEnv('STRIPE_SECRET'));
+        
+        $session = \Stripe\BillingPortal\Session::create([
+            'customer' => $this->owner->StripeCustomerID,
+            'return_url' => $this->owner->AbsoluteBaseURL() . 'account/',
+        ]);
+
+        return $session->url;
     }
 
 }
