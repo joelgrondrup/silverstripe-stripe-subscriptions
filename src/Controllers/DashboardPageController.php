@@ -20,9 +20,27 @@ class DashboardPageController extends PageController
         
     ];
 
+    public function init(){
+
+        parent::init();
+
+    }
+
     public function index()
     {
         return $this->renderWith(['DashboardPage', 'Page']);
+    }
+
+    public function canViewSubscription()
+    {
+        $member = Security::getCurrentUser();
+        
+        // Example logic: Only allow if user has an active 'Gold' subscription
+        if ($member && $member->SubscriptionStatus === 'active') {
+            return true;
+        }
+        
+        return false;
     }
 
 }

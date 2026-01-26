@@ -78,10 +78,10 @@ class MembershipPageController extends PageController
             // Retrieve the full session object from Stripe using the ID
             $session = Session::retrieve($sessionId);
 
-            error_log("Session ID:" . $session->id);
-            
             // Check the payment status
             if ($session->payment_status === 'paid') {
+
+                $this->extend('updateStripeSubscriptionPaid', $session);
 
                 error_log(json_encode($session));
 
@@ -91,7 +91,7 @@ class MembershipPageController extends PageController
                 $member = Member::get()->filter('Email', $email)->first();
 
                 if ($member) {
-                    // 3. Log the user in
+                    
                     $identityStore = Injector::inst()->get(IdentityStore::class);
                     $identityStore->logIn($member, true, $this->getRequest()); // true = remember me
 

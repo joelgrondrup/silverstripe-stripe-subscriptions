@@ -8,3 +8,12 @@ SilverStripe\Security\Member:
 Vulcan\StripeWebhook\Models\EventOccurrence:
   extensions:
     - JoelGrondrup\StripeSubscriptions\Extensions\EventOccurrenceExtension
+
+JoelGrondrup\StripeSubscriptions\Pages\DashboardPage:
+  always_require_subscription: true
+  extensions:
+    - JoelGrondrup\StripeSubscriptions\Extensions\StripeProtectedExtension
+  
+JoelGrondrup\StripeSubscriptions\Pages\DashboardPageController:
+  extensions:
+    - JoelGrondrup\StripeSubscriptions\Extensions\StripeProtectedControllerExtension

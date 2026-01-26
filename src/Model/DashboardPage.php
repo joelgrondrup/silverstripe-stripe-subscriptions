@@ -30,8 +30,7 @@ class DashboardPage extends Page
     {
         $fields = parent::getCMSFields();
 
-        
-
         return $fields;
+        
     }
 }
