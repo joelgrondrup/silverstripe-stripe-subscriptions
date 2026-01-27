@@ -12,6 +12,8 @@ use SilverStripe\LinkField\Models\Link;
 class DashboardPage extends Page 
 {
 
+    private static $table_name = "DashboardPage";
+
     private static string $icon_class = 'font-icon-dashboard';
 
     private static $has_one = [

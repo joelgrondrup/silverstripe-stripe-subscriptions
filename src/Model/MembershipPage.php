@@ -12,6 +12,8 @@ use SilverStripe\LinkField\Models\Link;
 class MembershipPage extends Page 
 {
 
+    private static $table_name = "MembershipPage";
+
     private static string $icon_class = 'font-icon-p-cart';
 
     private static $has_one = [
