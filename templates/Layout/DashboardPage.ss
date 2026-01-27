@@ -10,29 +10,13 @@
                     </div>
                 </div>
                 <div class="row text-white my-3 mb-5">
-                    <div class="col-8">
-                        <h2>1. Udfyld brugeroplysninger</h2>
-                        <p>Udfyld felterne med dine brugeroplysninger til Microbizz for at aktivere softwaremodulerne.</p>
-                        <div class="form-outline mb-3" data-mdb-input-init>
-                            <input type="text" id="APIKey" class="form-control bg-light" />
-                            <label class="form-label" for="APIKey">API-nøgle</label>
-                        </div>
-                        <div class="form-outline mb-3" data-mdb-input-init>
-                            <input type="text" id="Username" class="form-control bg-light" />
-                            <label class="form-label" for="Username">Brugernavn</label>
-                        </div>
-                        <div class="form-outline" data-mdb-input-init>
-                            <input type="text" id="Password" class="form-control bg-light" />
-                            <label class="form-label" for="Password">Kodeord</label>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <h2>2. Aktiver</h2>
-                        <p>Når du har udfyldt bruger oplysningerne, skal du aktivere softwaren i MicroBizz.</p>
-                        <p>Du vil blive bedt om at logge ind på din konto i MicroBizz.</p>
-                        <div class="d-flex justify-content-end">
-                            <button class="btn btn-success disabled">Aktivér</button>
-                        </div>
+                    <div class="col-12">
+                        <!--
+
+                            INSERT YOUR CONTENT HERE WHICH IS AVAILABLE TO THE CURRENT USER 
+
+                        -->
+                        
                     </div>
                 </div>
                 <hr class="my-4 text-white" />
